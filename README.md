@@ -1,4 +1,4 @@
-##REAME TCC
+## README TCC
 
 Olá pessoal, me chamo Matheus Luiz e atualmente estou desenvolvendo meu TCC, que consiste em um e-commerce (comércio eletrônico). 
 Estou usando PHP, JavaScript, HTML, CSS, Bootstrap e o Framework Laravel!
@@ -9,7 +9,7 @@ mylinkedin: https://www.linkedin.com/in/matheus-luiz-b7939a156/
 
 
 
-##README LARAVEL
+## README LARAVEL
 
 <p align = "center">
 <a href="https://travis-ci.org/laravel/framework"> <img src = "https://travis-ci.org/laravel/framework.svg" alt = "Build Status"> </a>
