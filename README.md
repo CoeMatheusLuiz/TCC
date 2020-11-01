@@ -10,13 +10,12 @@ mylinkedin: https://www.linkedin.com/in/matheus-luiz-b7939a156/
 
 
 ##README LARAVEL
-<p align = "center"> <img src = "https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width = "400"> </ p >
 
 <p align = "center">
-<a href="https://travis-ci.org/laravel/framework"> <img src = "https://travis-ci.org/laravel/framework.svg" alt = "Build Status"> </ a>
+<a href="https://travis-ci.org/laravel/framework"> <img src = "https://travis-ci.org/laravel/framework.svg" alt = "Build Status"> </a>
 <a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/d/total.svg" alt = "Total de downloads "> </a>
 <a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/v/stable.svg" alt = "Estável mais recente Versão "> </a>
-<a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/license.svg" alt = "Licença"> < / a>
+<a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/license.svg" alt = "Licença"> </a>
 </p>
 
 ## Sobre o Laravel
