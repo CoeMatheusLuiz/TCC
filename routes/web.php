@@ -155,13 +155,13 @@ Route::get('admin/produtos', ["uses"=>"Admin\AdminProdutosController@index", "as
 //**PERFIL USUÁRIO**//
 
 //exibir perfil do usuário
-Route::get('/home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');;
+Route::get('/home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
 
-//editar perfil do usuário
-Route::post('/editarPerfil/{login}', ["uses"=>"HomeController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');;
+//exibir pagina para o usuário editar seu perfil
+Route::get('/editarPerfil/{id}', ["uses"=>"HomeController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');
 
-//editar perfil do usuário
-Route::post('/atualizarPerfil/{login}', ["uses"=>"HomeController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');;
+//atualizar dados do usuário
+Route::post('/atualizarPerfil/{id}', ["uses"=>"HomeController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');
 
 
 

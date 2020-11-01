@@ -715,8 +715,8 @@ LOCALIZA
 }
 
 .perfil-botoes a.edit{
-	color: #fff;
-	margin-left: 15px;
+	color: #00BFFF;
+	font-size: 20px;
 }
 
 .perfil-botoes a.cancel{
@@ -809,6 +809,12 @@ LOCALIZA
     text-shadow: 1px 1px #f79a56;
 }
 
+.btn-salvar-perfil{
+	background: none;
+	border: none;
+
+}
+
 div.container-perfil #navegacao a#perfil,
 div.editar #navegacao a#editar{
 	cursor: text;
@@ -826,10 +832,18 @@ a.perfil-name{
 }
 
 img#edit-imgp{
-	margin-top: 65%;
 	border-radius: 50%;
     width: 200px;
     height: 200px;
+    border: 1px solid #fff;
+}
+
+.text-editarperfil{
+	margin-bottom: 15px;
+    font-size: 30px;
+    text-shadow: 1px 1px #f79a56;
+    font-family: Rightious;
+    margin-top: 15px;
 }
 
 input#perfil-img{

@@ -31,7 +31,6 @@
   <script src="{{ asset('site/js/estados_cidades.json') }}"></script>
   <script src="{{ asset('site/js/tooltip.js') }}"></script>
   <script src="{{ asset('site/js/jquery.js')}}"></script>
-  <script src="{{ asset('site/js/script-perfil.js')}}"></script>
   
 
   <!-- Fontes linkadas-->
