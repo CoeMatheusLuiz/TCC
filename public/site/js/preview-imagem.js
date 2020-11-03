@@ -1,20 +1,21 @@
 function previewImagem(){
-	var imagem = document.querySelector('input[name=imagem-perfil]')
-	var preview = document.querySelector('img');
+    var imagem = document.querySelector('input[name=imagemperfil]').files[0];
+    var preview = document.querySelector('img[name=img-perfil]');
+    var reader = new FileReader();
 
-	var reader = new FileReader();
+    reader.onloadend = function(){
 
-	reader.onloadend = function(){
-		preview.src = reader.result;
-	}
+        preview.src = reader.result;
 
-		if(){
+    }
 
-			reader.readAsDataURL(imagem);
+    if(imagem){
 
-		}else{
+        reader.readAsDataURL(imagem);
 
-			preview.src= "";
+    }else{
 
-		}
+        preview.src= "";
+
+    }
 }

@@ -671,6 +671,16 @@ LOCALIZA
 	padding-top: 20px;
 }
 
+#conteudo-editimgperfil{
+	background: rgba(0, 0, 0, 0.9);
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+#conteudo-editimgperfil input{
+	color: red;
+}
+
 .h4-perfil{
 	color: #f79a56;
 	font-family: Rightious;
@@ -716,6 +726,12 @@ LOCALIZA
 
 .perfil-botoes a.edit{
 	color: #00BFFF;
+	font-size: 20px;
+	margin-right: 15px;
+}
+
+.perfil-botoes a.edit-img{
+	color: #00FF00;
 	font-size: 20px;
 }
 
@@ -836,6 +852,14 @@ img#edit-imgp{
     width: 200px;
     height: 200px;
     border: 1px solid #fff;
+    margin-top: 50%;
+}
+
+img#edit-imagemp{
+	border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #fff;
 }
 
 .text-editarperfil{
@@ -846,11 +870,30 @@ img#edit-imgp{
     margin-top: 15px;
 }
 
+.edit-img-text{
+    margin-bottom: 15px;
+    font-size: 50px;
+    text-shadow: 3px 3px #000;
+    font-family: Rightious;
+    margin-top: 75px;
+    color: #fff;
+}
+
 input#perfil-img{
 	color: #fff;
 	font-size: 15px;
 	max-width: 130px;
 }
+
+.edit-img h3{
+	margin-bottom: 15px;
+    font-size: 50px;
+    text-shadow: 3px 3px #000;
+    font-family: Rightious;
+    margin-top: 75px;
+    color: #fff;
+}
+
 
 
 /*

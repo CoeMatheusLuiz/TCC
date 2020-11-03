@@ -10,7 +10,7 @@
                 <div class="card-header text-center" id="texto-registo">{{ __('REGISTRO') }}</div>
 
                 <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -67,6 +67,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -219,69 +220,6 @@
                                     @enderror
                             </div>
                         </div>
-
-                        <script>
-                                $(document).ready(function(){
-                                $('#cpf').mask('000.000.000-00');
-                                $('#cep').mask('00000-000');
-                                $('#celular').mask('(00) 00000-0000');    
-                                })
-
-                                $(document).ready(function () {
-    
-                                    $.getJSON('site/js/estados_cidades.json', function (data) {
-
-                                        var items = [];
-                                        var options = '<option value="">Escolha um estado</option>';  
-
-                                        $.each(data, function (key, val) {
-                                            options += '<option value="' + val.nome + '">' + val.nome + '</option>';
-                                        });         
-                                        $("#estado").html(options);       
-                                        
-                                        $("#estado").change(function () {       
-                                        
-                                            var options_cidades = '';
-                                            var str = "";         
-                                            
-                                            $("#estado option:selected").each(function () {
-                                                str += $(this).text();
-                                            });
-                                            
-                                            $.each(data, function (key, val) {
-                                                if(val.nome == str) {             
-                                                    $.each(val.cidades, function (key_city, val_city) {
-                                                        options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
-                                                    });             
-                                                }
-                                            });
-
-                                            $("#cidade").html(options_cidades);
-                                            
-                                        }).change();    
-                                    
-                                    });
-                                
-                                });
-
-                            function previewImagem(){
-                                var imagemperfil = document.querySelector('input[name=imagemperfil]').files[0];
-                                var preview = document.querySelector('img[name=img-perfil]');
-                                
-                                var reader = new FileReader();
-                                
-                                reader.onloadend = function () {
-                                  preview.src = reader.result;
-                                }
-                                
-                                if(imagemperfil){
-                                  reader.readAsDataURL(imagemperfil);
-                                }else{
-                                  preview.src = "";
-                                }
-                              }
-
-                        </script>
 
 
                         <div class="form-group row mb-0">

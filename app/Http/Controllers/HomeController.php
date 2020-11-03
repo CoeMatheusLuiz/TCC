@@ -32,40 +32,80 @@ class HomeController extends Controller
         return view('site.perfil');
     }
 
-    public function editarPerfil($id){
+    //Exibir editar perfil do usuário
+    public function editarPerfil(User $user){
 
-        $user = User::find($id);
-        return view('site.editarPerfil',['user'=>$user]);
+        return view('site.editarPerfil', compact('user'));
 
     }
 
-     //Atualizando novos dados no produto
-    public function atualizarPerfil(Request $request, $id){
+    //Exibir editar imagem do usuário
+    public function editarImagemUsuario(){
 
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $remember_token = $request->input('remember_token');
-        $login = $request->input('login');
-        $CPF = $request->input('CPF');
-        $datanascimento = $request->input('datanascimento');
-        $Estado = $request->input('Estado');
-        $Cidade = $request->input('Cidade');
-        $Rua = $request->input('Rua');
-        $Bairro = $request->input('Bairro');
-        $Numero = $request->input('Numero');
-        $Complemento = $request->input('Complemento');
-        $Cep = $request->input('Cep');
-        $Celular = $request->input('Celular');
-        $imagemperfil = $request->input('imagemperfil');
+        return view('site.editarImagemPerfil');
         
-        $arrayAtualizar = array("name"=>$name, "email"=> $email, "password"=>$password, "remember_token"=>$remember_token, "login"=>$login,
-                                "CPF"=>$CPF, "datanascimento"=>$datanascimento, "Estado"=>$Estado, "Cidade"=>$Cidade, "Rua"=>$Rua, 
-                                "Bairro"=>$Bairro, "Numero"=>$Numero, "Complemento"=>$Complemento, "Cep"=>$Cep, "Celular"=>$Celular, 
-                                "imagemperfil"=>$imagemperfil);
-        DB::table('users')->where('id', $id)->update($arrayAtualizar);
+    }
+
+
+    //Atualizando novos dados do usuário
+    public function atualizarPerfil(User $user){
+
+        request()->validate([
+            'name' => 'required',
+            'login' => 'required',
+            'email' => 'required',
+            'cpf' => 'required',
+            'datanascimento' => 'required',
+            'estado' => 'required',
+            'cidade' => 'required',
+            'rua' => 'required',
+            'bairro' => 'required',
+            'numero' => 'required',
+            'complemento' => 'required',
+            'cep' => 'required',
+            'celular' => 'required'
+            
+        ]);
+
+        $user->update(request()->only('name', 'login', 'email', 'cpf', 'datanascimento', 'estado', 'cidade', 'rua', 'bairro', 'numero', 'complemento', 'cep', 'celular'));
+
+        return redirect()->route('perfilUsuario');
+    }
+
+
     
-        return redirect()->route("adminPainelProdutos");
+
+    //Atualizando uma nova imagem para o produto
+    public function atualizarImagemUsuario(Request $request, $id){
+
+        Validator::make($request->all(),['imagem'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
+
+        if($request->hasFile("imagem")){
     
+            $produto = Produto::find($id);
+            $exists = Storage::disk('local')->exists("public/produto_imagens/".$produto->imagem);
+            
+            //Excluir imagem antiga
+            if($exists){
+            
+                Storage::delete('public/produto_imagens/'.$produto->imagem);
+            }
+        
+            //Carregar nova imagem
+            $ext = $request->file('imagem')->getClientOriginalExtension();
+        
+            $request->imagem->storeAs('public/produto_imagens/',$produto->imagem);
+            
+            $arrayAtualizar = array('imagem'=>$produto->imagem);
+            DB::table('produtos')->where('id', $id)->update($arrayAtualizar);
+
+            return redirect()->route("adminPainelProdutos");
+        
+        }else{
+            
+            $error = "Nenhuma imagem foi selecionada";
+            return $error;
+
+        }
     }
 }

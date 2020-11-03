@@ -92,7 +92,20 @@ class RegisterController extends Controller
             'cep' => $data['cep'],
             'celular' => $data['celular'],
             'imagemperfil' => $data['imagemperfil'],
-
         ]);
+
+        Validator::make($request->all(),['imagemperfil'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
+            $ext = $request->file('imagemperfil')->getClientOriginalExtension();
+            $stringImagem = str_replace(" ", "", $request->input(imagemperfil));
+
+            $imagemNome = $stringImagem.".".$ext;
+            $imagemCodificada = File::get($request->imagem);
+            Storage::disk('local')->put('public/imagens_perfil/'.$imagemNome, $imagemCodificada);
+
+            $novoUsuario = array("imagem"=>$imagemNome);
+            $criado = DB::table("users")->insert($novoUsuario);
+
+
+       
     }
 }

@@ -16,19 +16,16 @@
                             </div>
                         @endif
 
-                        <form action="{{route('atualizarPerfil',['id' => Auth::user()->id ])}}" method="POST">
-
-                            {{csrf_field()}}
-
+                        <form action="{{ route('atualizarPerfil', ['user' => Auth::user() ])}}" method="post">
+                            @csrf @method('PATCH')
                             <div class="form-group">
                                 <label for="imagemperfil">Imagem Perfil</label>
-                                <img name="img-perfil" id="edit-imgp" src="{!! Auth::user()->imagemperfil !!}"><br><br>
-                                <input type="file" class="form-control" name="imagemperfil" id="perfil-img imagemperfil" onchange="previewImagem()" >
+                                <img name="img-perfil" id="edit-imagemp" src="{!! Auth::user()->imagemperfil !!}"><br><br>
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Nome</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="" value="{!! Auth::user()->name !!}" required>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="" value="{{old('name',$user->name)}}" required>
                             </div>
 
                             <div class="form-group">
@@ -43,64 +40,56 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password">Senha</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="" value="{!! Auth::user()->password !!}" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="remember_token">Confirme sua senha</label>
-                                <input type="text" class="form-control" name="remember_token" id="remember_token" placeholder="" value="{!! Auth::user()->remember_token !!}" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="CPF">CPF</label>
-                                <input type="text" class="form-control" name="CPF" id="CPF" placeholder="" value="{!! Auth::user()->CPF !!}" required>
+                                <label for="cpf">CPF</label>
+                                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="" value="{!! Auth::user()->cpf !!}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="datanascimento">Data de Nascimento</label>
-                                <input type="text" class="form-control" name="datanascimento" id="datanascimento" placeholder="" value="{!! Auth::user()->datanascimento !!}" required>
+                                <input type="date" class="form-control" name="datanascimento" id="datanascimento" placeholder="" value="{!! Auth::user()->datanascimento !!}" required>
                             </div>
 
 
                             <div class="form-group">
-                                <label for="Estado">Estado</label>
-                                <input type="text" class="form-control" name="Estado" id="Estado" placeholder="" value="{!! Auth::user()->Estado !!}" required>
+                                <label for="estado">Estado</label>
+                                <input id="estado" class="form-control" name="estado" value="{!! Auth::user()->estado !!}" required autocomplete="estado">
+                                </input>
                             </div>
 
                             <div class="form-group">
-                                <label for="Cidade">Cidade</label>
-                                <input type="text" class="form-control" name="Cidade" id="Cidade" placeholder="" value="{!! Auth::user()->Cidade !!}" required>
+                                <label for="cidade">Cidade</label>
+                                <input id="cidade" class="form-control " name="cidade" value="{!! Auth::user()->cidade !!}" required autocomplete="cidade">
+                                </input>
                             </div>
 
                             <div class="form-group">
-                                <label for="Rua">Rua</label>
-                                <input type="text" class="form-control" name="Rua" id="Rua" placeholder="" value="{!! Auth::user()->Rua !!}" required>
+                                <label for="rua">Rua</label>
+                                <input type="text" class="form-control" name="rua" id="rua" placeholder="" value="{!! Auth::user()->rua !!}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="Bairro">Bairro</label>
-                                <input type="text" class="form-control" name="Bairro" id="Bairro" placeholder="" value="{!! Auth::user()->Bairro !!}" required>
+                                <label for="bairro">Bairro</label>
+                                <input type="text" class="form-control" name="bairro" id="bairro" placeholder="" value="{!! Auth::user()->bairro !!}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="Numero">Numero</label>
-                                <input type="text" class="form-control" name="Numero" id="Numero" placeholder="" value="{!! Auth::user()->Numero !!}" required>
+                                <label for="numero">Numero</label>
+                                <input type="text" class="form-control" name="numero" id="numero" placeholder="" value="{!! Auth::user()->numero !!}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="Complemento">Complemento</label>
-                                <input type="text" class="form-control" name="Complemento" id="Complemento" placeholder="" value="{!! Auth::user()->Complemento !!}" required>
+                                <label for="complemento">Complemento</label>
+                                <input type="text" class="form-control" name="complemento" id="complemento" placeholder="" value="{!! Auth::user()->complemento !!}">
                             </div>
 
                             <div class="form-group">
-                                <label for="Cep">Cep</label>
-                                <input type="text" class="form-control" name="Cep" id="Cep" placeholder="" value="{!! Auth::user()->Cep !!}" required>
+                                <label for="cep">Cep</label>
+                                <input type="text" class="form-control" name="cep" id="cep" placeholder="" value="{!! Auth::user()->cep !!}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="Celular">Celular</label>
-                                <input type="text" class="form-control" name="Celular" id="Celular" placeholder="" value="{!! Auth::user()->Celular !!}" required>
+                                <label for="celular">Celular</label>
+                                <input type="text" class="form-control" name="celular" id="celular" placeholder="" value="{!! Auth::user()->celular !!}" required>
                             </div>
 
                             <div class="perfil-botoes text-center">
@@ -111,14 +100,11 @@
                                         </svg>
                                     </a>
                                 </button>
-
-                                <button type="submit" class="btn-salvar-perfil">
                                         <a href="{{ route('perfilUsuario')}}" class="cancel" onMouseOver="toolTip('<b>Cancelar</b>')" onMouseOut="toolTip()">
                                           <svg width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                           <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                                           </svg>
                                         </a>
-                                </button>
                             </div>
                         </form>
                     </div>
@@ -128,3 +114,4 @@
     </div>
 </div>
 @endsection
+

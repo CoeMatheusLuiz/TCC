@@ -21,26 +21,12 @@
             </div>
           </div>
         </div>
-
-        @if(session('success'))
-          <div class="alert alert-success">
-            {{ session('success') }}
-          </div>
-        @endif
-
-        @if(session('error'))
-          <div class="alert alert-danger">
-            {{ session('error') }}
-          </div>
-        @endif
-
           {{!! csrf_field() !!}}
           <div class="container">
             <div class="row">
               
               <div class="col-md-4">
-                    <img name="img-perfil" id="edit-imgp" src="{!! Auth::user()->imagemperfil !!}"><br><br> 
-                    <input type="file" name="imagemperfil" id="perfil-img imagemperfil" onchange="previewImagem()" ><br><br>
+                    <img name="img-perfil" id="edit-imgp" src="{!! Auth::user()->imagemperfil !!}"><br><br>
               </div>
               <div class="col-md-8">
                   <table class="table-perfil">
@@ -53,7 +39,7 @@
                       <tr>
                           <td>
                              <label>Login: </label>
-                             <input type="text" id="campo2 login" name="campo2 login" placeholder="{!! Auth::user()->Login !!}" disabled/> 
+                             <input type="text" id="campo2 login" name="campo2 login" placeholder="{!! Auth::user()->login !!}" disabled/> 
                           </td>
                       </tr>
                       <tr>
@@ -63,20 +49,8 @@
                       </tr>
                       <tr>
                           <td>
-                              <label>Senha: </label>
-                             <input type="text" id="campo4 password" name="campo4 password" placeholder="Senha criptografada" disabled/> 
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label>Confirme a senha: </label>
-                             <input type="text" id="campo5 remember_token" name="campo5 remember_token" placeholder="Senha criptografada" disabled/> 
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
                               <label>CPF: </label>
-                             <input type="text" id="campo6 CPF" name="campo6 CPF" placeholder="{!! Auth::user()->CPF !!}" disabled/> 
+                             <input type="text" id="campo6 cpf" name="campo6 cpf" placeholder="{!! Auth::user()->cpf !!}" disabled/> 
                           </td>
                       </tr>
                       <tr>
@@ -88,63 +62,71 @@
                       <tr>
                           <td>
                               <label>Estado: </label>
-                             <input type="text" id="campo8 Estado" name="campo8 Estado" placeholder="{!! Auth::user()->Estado !!}" disabled/> 
+                             <input type="text" id="campo8 estado" name="campo8 estado" placeholder="{!! Auth::user()->estado !!}" disabled/> 
                           </td>
                       </tr>
                       <tr>
                           <td>
                               <label>Cidade: </label>
-                             <input type="text" id="campo9 Cidade" name="campo9 Cidade" placeholder="{!! Auth::user()->Cidade !!}" disabled/>
+                             <input type="text" id="campo9 cidade" name="campo9 cidade" placeholder="{!! Auth::user()->cidade !!}" disabled/>
                           </td>
                       </tr>
                       <tr>
                           <td>
                               <label>Rua: </label>
-                             <input type="text" id="campo10 Rua" name="campo10 Rua" placeholder="{!! Auth::user()->Rua !!}" disabled/>
+                             <input type="text" id="campo10 rua" name="campo10 rua" placeholder="{!! Auth::user()->rua !!}" disabled/>
                           </td>
                       </tr>
                       <tr>
                           <td>
                               <label>Bairro: </label>
-                             <input type="text" id="campo11 Bairro" name="campo11 Bairro" placeholder="{!! Auth::user()->Bairro !!}" disabled/>
+                             <input type="text" id="campo11 bairro" name="campo11 bairro" placeholder="{!! Auth::user()->bairro !!}" disabled/>
                           </td>
                       </tr>
                       <tr>
                           <td>
                              <label>Numero: </label>
-                             <input type="text" id="campo12 Numero" name="campo12 Numero" placeholder="{!! Auth::user()->Numero !!}" disabled/> 
+                             <input type="text" id="campo12 numero" name="campo12 numero" placeholder="{!! Auth::user()->numero !!}" disabled/> 
                           </td>
                       </tr>
                       <tr>
                           <td>
                              <label>Complemento: </label>
-                             <input type="text" id="campo13 Complemento" name="campo13 Complemento" placeholder="{!! Auth::user()->Complemento !!}" disabled/>
+                             <input type="text" id="campo13 complemento" name="campo13 complemento" placeholder="{!! Auth::user()->complemento !!}" disabled/>
                       <tr>
                           <td>
                               <label>CEP: </label>
-                             <input type="text" id="campo14 Cep" name="campo14 Cep" placeholder="{!! Auth::user()->Cep !!}" disabled/>
+                             <input type="text" id="campo14 cep" name="campo14 cep" placeholder="{!! Auth::user()->cep !!}" disabled/>
                           </td>
                       </tr>
                       <tr>
                           <td>
                               <label>Celular: </label>
-                             <input type="text" id="campo15 Celular" name="campo15 Celular" placeholder="{!! Auth::user()->Celular !!}" disabled/> 
+                             <input type="text" id="campo15 celular" name="campo15 celular" placeholder="{!! Auth::user()->celular !!}" disabled/> 
                           </td>
                       </tr>
                       
                   </table>
-
-                  <div class="perfil-botoes text-center">
-                    <a href="{{ route('editarPerfil', ['id' => Auth::user()->id  ])}} " id="enable1" class="edit"> 
-                      <svg width="35px" height="35px" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                      </svg>
-                      Editar Perfil
-                    </a>
-                  </div>
-
               </div>
             </div>
+
+              <div class="perfil-botoes text-center">
+                <a href="{{ route('editarPerfil', ['user' => Auth::user() ])}}" id="enable1" class="edit"> 
+                  <svg width="35px" height="35px" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg>
+                    Editar Perfil
+                </a>
+
+                <a href="{{ route('editarImagemUsuario', ['id' => Auth::user()->id ])}}" id="enable1" class="edit-img"> 
+                  <svg width="35px" height="35px" viewBox="0 0 16 16" class="bi bi-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 0 0-1 1v9l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15.002 9.5V3a1 1 0 0 0-1-1zm-12-1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                  </svg>
+                    Editar Imagem
+                </a>
+
+              </div>
+
           </div>
 
     </section>
@@ -152,27 +134,6 @@
     <section id="espaco"></section>
     <section id="espaco2"></section>
 
-
-
-
-<script>
-      function previewImagem(){
-        var imagemperfil = document.querySelector('input[name=imagemperfil]').files[0];
-        var preview = document.querySelector('img[name=img-perfil]');
-        
-        var reader = new FileReader();
-        
-        reader.onloadend = function () {
-          preview.src = reader.result;
-        }
-        
-        if(imagemperfil){
-          reader.readAsDataURL(imagemperfil);
-        }else{
-          preview.src = "";
-        }
-      }
-    </script>
     
 </div>
 

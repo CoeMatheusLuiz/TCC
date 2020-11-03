@@ -158,10 +158,16 @@ Route::get('admin/produtos', ["uses"=>"Admin\AdminProdutosController@index", "as
 Route::get('/home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
 
 //exibir pagina para o usuário editar seu perfil
-Route::get('/editarPerfil/{id}', ["uses"=>"HomeController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');
+Route::get('/{user}/editarPerfil', ["uses"=>"HomeController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');
 
 //atualizar dados do usuário
-Route::post('/atualizarPerfil/{id}', ["uses"=>"HomeController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');
+Route::patch('/atualizarPerfil/{user}', ["uses"=>"HomeController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');
+
+//exibição de editar imagem do usuário
+Route::get('/editarImagemUsuario/', ["uses"=>"HomeController@editarImagemUsuario", "as"=>"editarImagemUsuario"])->middleware('auth');
+
+//atualizar imagem do usuário
+Route::post('/atualizarImagemUsuario/{id}', ["uses"=>"HomeController@atualizarImagemUsuario", "as"=>"atualizarImagemUsuario"])->middleware('auth');
 
 
 
