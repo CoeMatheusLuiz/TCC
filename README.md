@@ -1,61 +1,72 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## README TCC
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+Olá pessoal, me chamo Matheus Luiz e atualmente estou desenvolvendo meu TCC, que consiste em um e-commerce (comércio eletrônico). 
+Estou usando PHP, JavaScript, HTML, CSS, Bootstrap e o Framework Laravel!
+Sinta-se a vontade para utilizar o código caso ele for te ajudar, só não copia o Layout em ! XDXDXD
+Caso queira me ajudar, só deixa um comentário ai meus queridos!
+
+mylinkedin: https://www.linkedin.com/in/matheus-luiz-b7939a156/
+
+
+
+## README LARAVEL
+
+<p align = "center">
+<a href="https://travis-ci.org/laravel/framework"> <img src = "https://travis-ci.org/laravel/framework.svg" alt = "Build Status"> </a>
+<a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/d/total.svg" alt = "Total de downloads "> </a>
+<a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/v/stable.svg" alt = "Estável mais recente Versão "> </a>
+<a href="https://packagist.org/packages/laravel/framework"> <img src = "https://poser.pugx.org/laravel/framework/license.svg" alt = "Licença"> </a>
 </p>
 
-## About Laravel
+## Sobre o Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel é um framework de aplicação web com sintaxe expressiva e elegante. Acreditamos que o desenvolvimento deve ser uma experiência agradável e criativa para ser verdadeiramente gratificante. O Laravel tira a dor do desenvolvimento facilitando tarefas comuns usadas em muitos projetos da web, como:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Motor de roteamento simples e rápido] (https://laravel.com/docs/routing).
+- [Recipiente de injeção de dependência poderoso] (https://laravel.com/docs/container).
+- Múltiplos back-ends para armazenamento de [sessão] (https://laravel.com/docs/session) e [cache] (https://laravel.com/docs/cache).
+- Expressivo, intuitivo [banco de dados ORM] (https://laravel.com/docs/eloquent).
+- Agnóstico de banco de dados [migrações de esquema] (https://laravel.com/docs/migrations).
+- [Processamento robusto de trabalho em segundo plano] (https://laravel.com/docs/queues).
+- [Transmissão de eventos em tempo real] (https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+O Laravel é acessível, poderoso e fornece ferramentas necessárias para aplicativos grandes e robustos.
 
-## Learning Laravel
+## Aprendendo o Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O Laravel tem a mais extensa e completa [documentação] (https://laravel.com/docs) e biblioteca de tutoriais em vídeo de todos os frameworks de aplicações web modernos, tornando muito fácil começar com o framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Se você não quiser ler, [Laracasts] (https://laracasts.com) pode ajudar. Laracasts contém mais de 1500 tutoriais em vídeo sobre uma variedade de tópicos, incluindo Laravel, PHP moderno, testes de unidade e JavaScript. Aumente suas habilidades explorando nossa abrangente biblioteca de vídeos.
 
-## Laravel Sponsors
+## Patrocinadores do Laravel
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Gostaríamos de estender nossos agradecimentos aos seguintes patrocinadores por financiar o desenvolvimento do Laravel. Se você estiver interessado em se tornar um patrocinador, visite o Laravel [página do Patreon] (https://patreon.com/taylorotwell).
 
-### Premium Partners
+### Parceiros Premium
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+- ** [Vehikl] (https://vehikl.com/) **
+- ** [Tighten Co.] (https://tighten.co) **
+- ** [Grupo de desenvolvimento Kirschbaum] (https://kirschbaumdevelopment.com) **
+- ** [64 Robots] (https://64robots.com) **
+- ** [Cubet Techno Labs] (https://cubettech.com) **
+- ** [Cyber-Duck] (https://cyber-duck.co.uk) **
+- ** [Muitos] (https://www.many.co.uk) **
+- ** [Webdock, Fast VPS Hosting] (https://www.webdock.io/en) **
+- ** [DevSquad] (https://devsquad.com) **
+- ** [OP.GG] (https://op.gg) **
 
-## Contributing
+## Contribuindo
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Obrigado por considerar contribuir com o framework Laravel! O guia de contribuição pode ser encontrado na [documentação do Laravel] (https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Código de conduta
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+A fim de garantir que a comunidade Laravel seja bem-vinda a todos, por favor, reveja e cumpra o [Código de Conduta] (https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Vulnerabilidades de segurança
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Se você descobrir uma vulnerabilidade de segurança no Laravel, envie um e-mail para Taylor Otwell via [taylor@laravel.com] (mailto: taylor@laravel.com). Todas as vulnerabilidades de segurança serão resolvidas imediatamente.
 
-## License
+## Licença
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+O framework Laravel é um software de código aberto licenciado sob a [licença MIT] (https://opensource.org/licenses/MIT).
