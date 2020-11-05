@@ -59,7 +59,7 @@
 
         <div class="form-group">
             <label for="linha">Linha</label>
-            <input id="linha" type="text" class="form-control @error('linha') is-invalid @enderror" name="linha" value="{{ old('linha') }}" required autocomplete="linha" autofocus>
+            <input id="linha" type="text" class="form-control @error('linha') is-invalid @enderror" name="linha" value="{{ old('linha') }}" autofocus>
                 @error('nome')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

@@ -25,13 +25,19 @@ class ProdutosRequest extends FormRequest
     {
         return [
             'nome' => 'required|unique:produtos',
+            'descricao' => 'required',
+            'tipo' => 'required',
+            'preco' => 'required',
         ];
     }
 
     public function messages(){
         return [
             'nome.required' => 'O campo nome tem que ser preenchido',
-            'nome.unique' => 'Já existe um produto com este nome.',   
+            'nome.unique' => 'Já existe um produto com este nome.', 
+            'descricao.required' => 'O campo nome tem que ser preenchido',
+            'tipo.required' => 'O campo nome tem que ser preenchido',
+            'preco.required' => 'O campo nome tem que ser preenchido', 
         ];
     }
 }
