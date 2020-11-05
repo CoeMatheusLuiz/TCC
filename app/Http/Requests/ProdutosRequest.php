@@ -24,7 +24,14 @@ class ProdutosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|unique:produtos',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'nome.required' => 'O campo nome tem que ser preenchido',
+            'nome.unique' => 'Já existe um produto com este nome.',   
         ];
     }
 }

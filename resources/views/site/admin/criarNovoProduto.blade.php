@@ -5,17 +5,6 @@
 
 <div class="table-responsive">
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-
-            <li>{!! print_r($errors->all()) !!}</li>
-
-        </ul>
-    </div>
-    @endif
-
-
     <h2>Criar Novo Produto</h2>
 
     <form action="{{ route('adminCriandoNovoProduto')}}" method="post" enctype="multipart/form-data">
@@ -24,17 +13,19 @@
 
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="nome do produto" required>
+             <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}"  autofocus>
+
                 @error('nome')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
         </div>
+
         <div class="form-group">
             <label for="descricao">Descrição</label>
-            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="descricao" required>
-                @error('nome')
+            <input id="descricao" type="text" class="form-control @error('descricao') is-invalid @enderror" name="descricao" value="{{ old('descricao') }}" required autocomplete="descricao" autofocus>
+                @error('Descrição')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -44,16 +35,12 @@
         <div class="form-group">
             <label for="imagem">Imagem</label>
             <input type="file" class=""  name="imagem" id="imagem" required>
-                @error('nome')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
         </div>
+
         <div class="form-group">
             <label for="tipo">Tipo</label>
-            <input type="text" class="form-control" name="tipo" id="tipo" placeholder="tipo" required>
-                @error('nome')
+            <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo" autofocus>
+                @error('Tipo')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -62,8 +49,8 @@
 
         <div class="form-group">
             <label for="preco">Preco</label>
-            <input type="text" class="form-control" name="preco" id="preco" placeholder="preco" required>
-             @error('nome')
+            <input id="preco" type="text" class="form-control @error('preco') is-invalid @enderror" name="preco" value="{{ old('preco') }}" required autocomplete="preco" autofocus>
+             @error('Preco')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -72,7 +59,7 @@
 
         <div class="form-group">
             <label for="linha">Linha</label>
-            <input type="text" class="form-control" name="linha" id="linha" placeholder="linha" required>
+            <input id="linha" type="text" class="form-control @error('linha') is-invalid @enderror" name="linha" value="{{ old('linha') }}" required autocomplete="linha" autofocus>
                 @error('nome')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

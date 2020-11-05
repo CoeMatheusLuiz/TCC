@@ -85,7 +85,7 @@ class AdminProdutosController extends Controller
     }
 
     //Atualizando novos dados no produto
-    public function atualizarProduto(Request $request, $id){
+    public function atualizarProduto(ProdutosRequest $request, $id){
 	
         $nome = $request->input('nome');
         $descricao = $request->input('descricao');
