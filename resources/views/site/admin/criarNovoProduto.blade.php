@@ -34,25 +34,50 @@
         <div class="form-group">
             <label for="descricao">Descrição</label>
             <input type="text" class="form-control" name="descricao" id="descricao" placeholder="descricao" required>
+                @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
 
         <div class="form-group">
             <label for="imagem">Imagem</label>
             <input type="file" class=""  name="imagem" id="imagem" required>
+                @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
         <div class="form-group">
             <label for="tipo">Tipo</label>
             <input type="text" class="form-control" name="tipo" id="tipo" placeholder="tipo" required>
+                @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
 
         <div class="form-group">
             <label for="preco">Preco</label>
             <input type="text" class="form-control" name="preco" id="preco" placeholder="preco" required>
+             @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
 
         <div class="form-group">
             <label for="linha">Linha</label>
             <input type="text" class="form-control" name="linha" id="linha" placeholder="linha" required>
+                @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
         <button type="submit" name="submit" class="btn btn-default btn-custom btn-botao btn-carousel">Enviar</button>
     </form>
