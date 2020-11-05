@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ProdutosRequest;
 use App\Http\Controllers\Controller;
 use App\Produto;
 use Illuminate\Support\Facades\DB;
@@ -101,7 +101,7 @@ class AdminProdutosController extends Controller
     }
     
     //Criando um novo produto no banco de dados
-	public function criandoNovoProduto(Request $request){
+	public function criandoNovoProduto(ProdutosRequest $request){
 
         $nome = $request->input('nome');
         $descricao = $request->input('descricao');

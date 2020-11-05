@@ -25,6 +25,11 @@
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="nome" placeholder="nome do produto" required>
+                @error('nome')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
         <div class="form-group">
             <label for="descricao">Descrição</label>

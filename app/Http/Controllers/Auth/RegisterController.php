@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -48,24 +49,27 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    {   
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
             'login' => ['required', 'string', 'min:5', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'cpf' => ['required', 'string', 'min:14', 'unique:users'],
+            'cpf' => ['required', 'string', 'min:14', 'unique:users', 'cpf'],
             'datanascimento' => ['required', 'string', 'min:10'],
-            'estado' => ['required', 'string', 'max:10'],
+            'estado' => ['required', 'string', 'max:255'],
             'cidade' => ['required', 'string', 'max:255'],
             'rua' => ['required', 'string', 'max:255'],
             'bairro' => ['required', 'string', 'max:255'],
             'numero' => ['required', 'string', 'min:2'],
             'complemento' => ['string', 'max:255'],
-            'cep' => ['required', 'string', 'min:9'],
-            'celular' => ['required', 'string', 'min:15', 'unique:users'],
-            'imagemperfil' => ['required', 'string', 'max:255'],
+            'cep' => ['required', 'string', 'min:9', 'formato_cep'],
+            'celular' => ['required', 'string', 'min:15', 'unique:users', 'celular_com_ddd'],
+            'imagemperfil'=> ['required', 'file', 'image', 'mimes:jpg,png,jpeg', 'max:5000'],
+
         ]);
+        
     }
 
     /**
@@ -75,7 +79,8 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+
         return User::create([
             'name' => $data['name'],
             'login' => $data['login'],
@@ -91,21 +96,8 @@ class RegisterController extends Controller
             'complemento' => $data['complemento'],
             'cep' => $data['cep'],
             'celular' => $data['celular'],
-            'imagemperfil' => $data['imagemperfil'],
-        ]);
-
-        Validator::make($request->all(),['imagemperfil'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
-            $ext = $request->file('imagemperfil')->getClientOriginalExtension();
-            $stringImagem = str_replace(" ", "", $request->input(imagemperfil));
-
-            $imagemNome = $stringImagem.".".$ext;
-            $imagemCodificada = File::get($request->imagem);
-            Storage::disk('local')->put('public/imagens_perfil/'.$imagemNome, $imagemCodificada);
-
-            $novoUsuario = array("imagem"=>$imagemNome);
-            $criado = DB::table("users")->insert($novoUsuario);
-
-
+            'imagemperfil' => $data['imagemperfil']
+            ]);
        
     }
 }

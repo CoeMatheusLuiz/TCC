@@ -154,6 +154,10 @@ Route::get('admin/produtos', ["uses"=>"Admin\AdminProdutosController@index", "as
 //**PERFIL USUÁRIO**//
 //**PERFIL USUÁRIO**//
 
+
+//registro do usuário
+Route::post('/create', ["uses"=>"HomeController@create", "as"=>"create"]);
+
 //exibir perfil do usuário
 Route::get('/home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
 
@@ -183,12 +187,3 @@ Route::get('/sobre', function () {
 Route::get('contato', function () {
     return view('site.contato');
 })->name('site.contato');
-
-Route::get('/inscreverse', function () {
-    return view('site.inscreverse');
-})->name('site.inscreverse');
-
-Route::get('/inscreverse', function () {
-    return view('site.inscreverse');
-})->name('site.inscreverse');
-
