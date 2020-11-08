@@ -26,7 +26,7 @@
             <div class="row">
               
               <div class="col-md-4">
-                    <img name="img-perfil" id="edit-imgp" src="{!! Auth::user()->imagemperfil !!}"><br><br>
+                    <img name="img-perfil" id="edit-imgp" src="{{asset ('storage')}}/imagens_perfil/{{Auth::user()->imagemperfil}}"><br><br>
               </div>
               <div class="col-md-8">
                   <table class="table-perfil">

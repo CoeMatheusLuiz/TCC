@@ -512,6 +512,10 @@ CONTATO
 	text-shadow: 1px 1px #fff;
 }
 
+.error-nome-contato{
+	color: pink;
+}
+
 strong{
     color: #f79a56;
     text-shadow: 1px 1px #fff;

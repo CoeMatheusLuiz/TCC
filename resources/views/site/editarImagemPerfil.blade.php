@@ -14,26 +14,18 @@
         Editar Imagem Perfil
     </div>
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-
-            <li>{!! print_r($errors->all()) !!}</li>
-
-        </ul>
-    </div>
-    @endif
-
     <form action="{{ route('atualizarImagemUsuario',['id' => Auth::user()->id  ])}}" method="post" enctype="multipart/form-data">
 
         {{csrf_field()}}
 
+                    <input id="imagemperfil" type="file" class="@error('imagemperfil') is-invalid @enderror" name="imagemperfil" value="{!! Auth::user()->imagemperfil !!}" required autocomplete="imagemperfil" onchange="previewImagem()">
+                    <img name="img-perfil" id="img-perfil"><br><br>
+                      @error('imagem')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
 
-
-        <div class="form-group">
-            <img name="imagemperfil" id="edit-imagemp" src="{!! Auth::user()->imagemperfil !!}"><br><br>
-            <input type="file" name="img-perfil" id="perfil-img imagemperfil" onchange="previewImagem()">
-        </div>
         <button type="submit" name="submit" class="btn btn-default btn-custom btn-botao btn-carousel">Enviar</button>
     </form>
 

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 //Autenticação de usuário
 Auth::routes();
 
+// --------------------------------------------------------------------------------------------------
+
 //**LOJA**//
 //**LOJA**//
 //**LOJA**//
@@ -28,6 +30,8 @@ Route::get('loja/colheres', ["uses"=>"ProdutosController@colheresProdutos", "as"
 
 //mostrar todos os produtos da categoria garfos
 Route::get('loja/garfos', ["uses"=>"ProdutosController@garfosProdutos", "as"=>"garfosProdutos"]);
+
+// --------------------------------------------------------------------------------------------------
 
 //** CARRINHO **//
 //** CARRINHO **//
@@ -57,6 +61,8 @@ Route::post('produtos/addAoCarrinhoAjaxGet/{id}', ["uses"=>"ProdutosController@a
 //pesquisar
 Route::get('pesquisar', ["uses"=>"ProdutosController@pesquisar", "as"=>"pesquisarProdutos"]);
 
+// --------------------------------------------------------------------------------------------------
+
 //** PEDIDO **//
 //** PEDIDO **//
 //** PEDIDO **//
@@ -70,6 +76,8 @@ Route::post('loja/criarNovoPedido/', ["uses"=>"ProdutosController@criarNovoPedid
 //criar o pedido
 Route::get('loja/criarPedido/', ["uses"=>"ProdutosController@criarPedido", "as"=>"criarPedido"]);
 
+// --------------------------------------------------------------------------------------------------
+
 //** FORMA DE PAGAMENTO **//
 //** FORMA DE PAGAMENTO **//
 //** FORMA DE PAGAMENTO **//
@@ -77,12 +85,15 @@ Route::get('loja/criarPedido/', ["uses"=>"ProdutosController@criarPedido", "as"=
 //mostrar a pagina de pagamento
 Route::get('formadepagamento/paginadepagamento/', ["uses"=>"FormadePagamento\PagamentoController@mostrarPagDePagamento", "as"=>"mostrarPagDePagamento"]);
 
+// --------------------------------------------------------------------------------------------------
+
 //**PAINEL ADMIN**//
 //**PAINEL ADMIN**//
 //**PAINEL ADMIN**//
 
 Route::group(['middleware' => ['restritoAoAdministrador']], function(){ 
 
+// --------------------------------------------------------------------------------------------------
 
 //**  ADMIN CONTROLE PRODUTOS**//
 
@@ -109,6 +120,8 @@ Route::post('admin/criandoNovoProduto/', ["uses"=>"Admin\AdminProdutosController
 Route::get('admin/excluirProduto/{id}', ["uses"=>"Admin\AdminProdutosController@excluirProduto", "as"=>"adminExcluirProduto"]);
 
 
+// --------------------------------------------------------------------------------------------------
+
 //**  ADMIN CONTROLE PEDIDOS**//
 
 
@@ -127,6 +140,8 @@ Route::get('admin/editarPedido/{pedido_id}', ["uses"=>"Admin\AdminProdutosContro
 //atualizar dados de pedidos
 Route::post('admin/atualizarPedido/{pedido_id}', ["uses"=>"Admin\AdminProdutosController@atualizarPedido", "as"=>"adminAtualizarPedido"]);
 
+
+// --------------------------------------------------------------------------------------------------
 
 //**  ADMIN CONTROLE USUÁRIOS**//
 
@@ -150,30 +165,44 @@ Route::post('admin/atualizarUsuario/{id}', ["uses"=>"Admin\AdminProdutosControll
 Route::get('admin/produtos', ["uses"=>"Admin\AdminProdutosController@index", "as"=>"adminPainelProdutos"])->middleware('restritoAoAdministrador');
 
 
+// --------------------------------------------------------------------------------------------------
+
 //**PERFIL USUÁRIO**//
 //**PERFIL USUÁRIO**//
 //**PERFIL USUÁRIO**//
 
-
-//registro do usuário
-Route::post('/create', ["uses"=>"HomeController@create", "as"=>"create"]);
 
 //exibir perfil do usuário
-Route::get('/home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
+Route::get('home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
 
 //exibir pagina para o usuário editar seu perfil
-Route::get('/{user}/editarPerfil', ["uses"=>"HomeController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');
+Route::get('{user}/editarPerfil', ["uses"=>"UserController@editarPerfil", "as"=>"editarPerfil"])->middleware('auth');
 
 //atualizar dados do usuário
-Route::patch('/atualizarPerfil/{user}', ["uses"=>"HomeController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');
+Route::patch('atualizarPerfil/{user}', ["uses"=>"UserController@atualizarPerfil", "as"=>"atualizarPerfil"])->middleware('auth');
 
 //exibição de editar imagem do usuário
-Route::get('/editarImagemUsuario/', ["uses"=>"HomeController@editarImagemUsuario", "as"=>"editarImagemUsuario"])->middleware('auth');
+Route::get('editarImagemUsuario/', ["uses"=>"UserController@editarImagemUsuario", "as"=>"editarImagemUsuario"])->middleware('auth');
 
 //atualizar imagem do usuário
-Route::post('/atualizarImagemUsuario/{id}', ["uses"=>"HomeController@atualizarImagemUsuario", "as"=>"atualizarImagemUsuario"])->middleware('auth');
+Route::post('atualizarImagemUsuario/{id}', ["uses"=>"UserController@atualizarImagemUsuario", "as"=>"atualizarImagemUsuario"])->middleware('auth');
+
+// --------------------------------------------------------------------------------------------------
+
+//**CONTATO**//
+//**CONTATO**//
+//**CONTATO**//
 
 
+
+//exibir perfil do usuário
+Route::get('contato', ["uses"=>"ContatoController@index", "as"=>"contato"]);
+
+//exibir aba de contato
+Route::resource('envMsgContato', ContatoController::class);
+
+
+// --------------------------------------------------------------------------------------------------
 
 //Rotas para paginas
 Route::get('/', function () {
@@ -183,7 +212,3 @@ Route::get('/', function () {
 Route::get('/sobre', function () {
     return view('site.sobre');
 })->name('site.sobre');
-
-Route::get('contato', function () {
-    return view('site.contato');
-})->name('site.contato');

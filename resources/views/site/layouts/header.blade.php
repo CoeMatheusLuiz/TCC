@@ -11,7 +11,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
   <!-- Font Awesome -->
@@ -29,11 +29,6 @@
   <script src="{{ asset('site/js/jquery.mask.js') }}" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="{{ asset('site/js/estados_cidades.json') }}"></script>
-  <script src="{{ asset('site/js/estados_cidades.js') }}"></script>
-  <script src="{{ asset('site/js/tooltip.js') }}"></script>
-  <script src="{{ asset('site/js/jquery.js')}}"></script>
-  <script src="{{ asset('site/js/mascaras.js')}}"></script>
-  <script src="{{ asset('site/js/preview-imagem.js')}}"></script>
   
 
   <!-- Fontes linkadas-->
@@ -66,6 +61,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
+
+
+    <script src="{{asset('site/js/jquery.js')}}"></script>
+    <script src="{{asset('site/js/script-perfil.js')}}"></script>
         
     <title>RP Utilidades Gourmet</title>
     <link rel="icon " href="site/imagens/icone.png">
@@ -105,7 +104,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a href="{{ route('site.contato')}}" class="nav-link">Contato</a>
+                  <a href="{{ route('contato')}}" class="nav-link">Contato</a>
                 </li>
 
                 <li class="nav-item divisor">
@@ -129,7 +128,7 @@
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                           </li>
-                          @if (Route('register'))
+                          @if (Route::has('register'))
                             <li class="nav-item">
                               <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
                             </li>
@@ -137,7 +136,7 @@
                         @else
                           <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle dropdown-name" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->login}} <span class="caret"></span>
+                              {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                               <div class="dropdown-menu dropdown-menu-right dropdown-sair" aria-labelledby="navbarDropdown">
@@ -157,7 +156,6 @@
                                           document.getElementById('logout-form').submit();">
                                     {{ __('Sair') }}
                                   </a>
-
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                   </form>

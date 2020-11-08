@@ -47,24 +47,60 @@
                 <div class="col-sm-8">
                     <div class="contact-form">
                         <h2 class="title text-center">Entrar Em Contato</h2>
-                        <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
-                            </div>                        
-                            <div class="form-group col-md-12">
-                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-                            </div>
-                        </form>
+
+                            @if(count($errors) > 0)
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Preencha os dados corretamente!</strong>
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>  
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif   
+
+                            @if($message = Session::get('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Obrigado!</strong> {{$message}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+                            @if($message = Session::get('error'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>OOOOPS!!</strong> {{$message}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+                                <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="{{url('envMsgContato')}}">
+
+                                    {{csrf_field()}}
+
+                                        <div class="form-group col-md-6">
+                                            <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" placeholder="Nome" autofocus>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <input type="email" name="email" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="text" name="assunto" class="form-control" placeholder="Assunto">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <textarea name="mensagem" id="mensagem" class="form-control" rows="8" placeholder="Sua Mensagem Aqui"></textarea>
+                                        </div>                        
+                                        <div class="form-group col-md-12">
+                                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                                        </div>
+                                </form>
                     </div>
                 </div>
                 <div class="col-sm-4">

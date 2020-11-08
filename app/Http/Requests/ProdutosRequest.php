@@ -35,9 +35,9 @@ class ProdutosRequest extends FormRequest
         return [
             'nome.required' => 'O campo nome tem que ser preenchido',
             'nome.unique' => 'Já existe um produto com este nome.', 
-            'descricao.required' => 'O campo nome tem que ser preenchido',
-            'tipo.required' => 'O campo nome tem que ser preenchido',
-            'preco.required' => 'O campo nome tem que ser preenchido', 
+            'descricao.required' => 'O campo descricao tem que ser preenchido',
+            'tipo.required' => 'O campo tipo tem que ser preenchido',
+            'preco.required' => 'O campo preco tem que ser preenchido', 
         ];
     }
 }

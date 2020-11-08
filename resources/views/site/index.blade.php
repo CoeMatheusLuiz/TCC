@@ -55,7 +55,7 @@
           <div id="img-conteudo2">
             <p>Contato</p>
             <div class="barra"></div>
-            <a href="{{ route('site.contato')}}" class="btn-conteudo-index btn-botao-conteudo">
+            <a href="{{ route('contato')}}" class="btn-conteudo-index btn-botao-conteudo">
               Veja mais
             </a>
           </div>
