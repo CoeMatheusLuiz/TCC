@@ -29,6 +29,9 @@
   <script src="{{ asset('site/js/jquery.mask.js') }}" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="{{ asset('site/js/estados_cidades.json') }}"></script>
+  <script src="{{ asset('site/js/estados_cidades.js') }}"></script>
+  <script src="{{ asset('site/js/mascaras.js') }}"></script>
+  <script src="{{ asset('site/js/preview-imagem.js') }}"></script>
   
 
   <!-- Fontes linkadas-->

@@ -27,6 +27,8 @@ class ProdutosRequest extends FormRequest
             'nome' => 'required|unique:produtos',
             'descricao' => 'required',
             'tipo' => 'required',
+            'linha' => 'required',
+            'quantidade' => 'required|numeric',
             'preco' => 'required',
         ];
     }
@@ -37,7 +39,10 @@ class ProdutosRequest extends FormRequest
             'nome.unique' => 'Já existe um produto com este nome.', 
             'descricao.required' => 'O campo descricao tem que ser preenchido',
             'tipo.required' => 'O campo tipo tem que ser preenchido',
-            'preco.required' => 'O campo preco tem que ser preenchido', 
+            'linha.required' => 'O campo linha tem que ser preenchido',
+            'quantidade.required' => 'O campo quantidade tem que ser preenchido',
+            'quantidade.numeric' => 'O campo quantidade tem que ser preenchido apenas com numeros',
+            'preco.required' => 'O campo preco tem que ser preenchido'
         ];
     }
 }

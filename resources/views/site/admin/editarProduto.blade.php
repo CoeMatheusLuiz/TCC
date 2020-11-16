@@ -13,7 +13,7 @@
             <label for="nome">Nome</label>
              <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{$produto->nome}}"  autofocus>
 
-                @error('nome')
+                @error('Nome')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -53,7 +53,17 @@
         <div class="form-group">
             <label for="linha">Linha</label>
             <input id="linha" type="text" class="form-control @error('linha') is-invalid @enderror" name="linha" value="{{$produto->linha}}" autofocus>
-                @error('nome')
+                @error('Linha')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input id="quantidade" type="text" class="form-control @error('quantidade') is-invalid @enderror" name="quantidade" value="{{$produto->quantidade}}" autofocus>
+                @error('Quantidade')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

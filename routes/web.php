@@ -171,7 +171,6 @@ Route::get('admin/produtos', ["uses"=>"Admin\AdminProdutosController@index", "as
 //**PERFIL USUÁRIO**//
 //**PERFIL USUÁRIO**//
 
-
 //exibir perfil do usuário
 Route::get('home', ["uses"=>"HomeController@index", "as"=>"perfilUsuario"])->middleware('auth');
 

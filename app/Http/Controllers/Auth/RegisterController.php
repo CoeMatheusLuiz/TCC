@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -96,8 +95,10 @@ class RegisterController extends Controller
             'complemento' => $data['complemento'],
             'cep' => $data['cep'],
             'celular' => $data['celular'],
-            'imagemperfil' => $data['imagemperfil']
+            'imagemperfil' => $data['imagemperfil'],
+
             ]);
        
     }
 }
+

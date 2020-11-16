@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ProdutosRequest;
+
 use App\Http\Controllers\Controller;
 use App\Produto;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Http\Request;
+use App\Http\Requests\ProdutosRequest;
 
 class AdminProdutosController extends Controller
 {
@@ -55,31 +56,33 @@ class AdminProdutosController extends Controller
 
         Validator::make($request->all(),['imagem'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
 
+
         if($request->hasFile("imagem")){
-	
+
             $produto = Produto::find($id);
-            $exists = Storage::disk('local')->exists("public/produto_imagens/".$produto->imagem);
-            
-            //Excluir imagem antiga
-            if($exists){
-            
-                Storage::delete('public/produto_imagens/'.$produto->imagem);
-            }
-        
-            //Carregar nova imagem
-            $ext = $request->file('imagem')->getClientOriginalExtension();
-        
-            $request->imagem->storeAs('public/produto_imagens/',$produto->imagem);
-            
+          $exists = Storage::disk('local')->exists("public/produto_imagens/".$produto->imagem);
+
+          //delete old image
+          if($exists){
+             Storage::delete('public/produto_imagens/'.$produto->imagem);
+
+          }
+
+          //upload new image
+            $ext = $request->file('imagem')->getClientOriginalExtension(); //jpg
+
+            $request->imagem->storeAs("produto_imagens/",$produto->imagem);
+
             $arrayAtualizar = array('imagem'=>$produto->imagem);
-            DB::table('produtos')->where('id', $id)->update($arrayAtualizar);
+            DB::table('produtos')->where('id',$id)->update($arrayAtualizar);
+
 
             return redirect()->route("adminPainelProdutos");
-        
+
         }else{
-            
-            $error = "Nenhuma imagem foi selecionada";
-	        return $error;
+
+           $error = "Nenhuma imagem foi selecionada";
+           return $error;
 
         }
     }
@@ -91,9 +94,10 @@ class AdminProdutosController extends Controller
         $descricao = $request->input('descricao');
         $tipo = $request->input('tipo');
         $preco = $request->input('preco');
+        $quantidade = $request->input('quantidade');
         $linha = $request->input('linha');
         
-        $arrayAtualizar = array("nome"=>$nome, "descricao"=> $descricao,"tipo"=>$tipo,"preco"=>$preco, "linha"=>$linha);
+        $arrayAtualizar = array("nome"=>$nome, "descricao"=> $descricao,"tipo"=>$tipo,"preco"=>$preco, "linha"=>$linha, "quantidade"=>$quantidade);
         DB::table('produtos')->where('id', $id)->update($arrayAtualizar);
     
         return redirect()->route("adminPainelProdutos");
@@ -108,6 +112,7 @@ class AdminProdutosController extends Controller
         $tipo = $request->input('tipo');
         $preco = $request->input('preco');
         $linha = $request->input('linha');
+        $quantidade = $request->input('quantidade');
 
         Validator::make($request->all(),['imagem'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
         $ext = $request->file('imagem')->getClientOriginalExtension();
@@ -117,7 +122,7 @@ class AdminProdutosController extends Controller
         $imagemCodificada = File::get($request->imagem);
         Storage::disk('local')->put('public/produto_imagens/'.$imagemNome, $imagemCodificada);
 
-        $novoProdutoArray = array("nome"=>$nome, "descricao"=> $descricao, "tipo"=>$tipo, "preco"=>$preco, "imagem"=>$imagemNome, "linha"=>$linha);
+        $novoProdutoArray = array("nome"=>$nome, "descricao"=> $descricao, "tipo"=>$tipo, "preco"=>$preco, "imagem"=>$imagemNome, "linha"=>$linha, "quantidade"=>$quantidade);
         $criado = DB::table("produtos")->insert($novoProdutoArray);
 
         if($criado){
@@ -217,7 +222,7 @@ class AdminProdutosController extends Controller
 
     }
 
-    //Excluir algum pedido 
+    //Excluir algum usuario
     public function excluirUsuario(Request $request, $id){
 
         $excluido = DB::table('users')->where("id", $id)->delete();
@@ -234,7 +239,7 @@ class AdminProdutosController extends Controller
     
     }
 
-    //Mostrar pag de atualização de pedido
+    //Mostrar pag de atualização de usuario
     public function editarUsuario($pedido_id){
 
         $users =  DB::table('users')->where("id",$id)->get();

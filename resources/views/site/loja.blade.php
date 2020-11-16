@@ -451,7 +451,7 @@
 										</div>
 										<div class="choose">
 											<ul class="nav nav-pills nav-justified">
-												<li><a href="#"><i class="fa fa-plus-square"></i>  Adicionar aos favoritos</a></li>
+												<li><a href="#"><i class="fa fa-plus-square"></i>  Adicionar a lista de desejos</a></li>
                              <li><a href="#"><i class="fa fa-plus-square"></i>  Detalhes do produto</a></li>
 											</ul>
 										</div>

@@ -24,8 +24,8 @@
 
         <div class="form-group">
             <label for="descricao">Descrição</label>
-            <input id="descricao" type="text" class="form-control @error('descricao') is-invalid @enderror" name="descricao" value="{{ old('descricao') }}" required autocomplete="descricao" autofocus>
-                @error('Descrição')
+            <input id="descricao" type="text" class="form-control @error('descricao') is-invalid @enderror" name="descricao" value="{{ old('descricao') }}" autofocus>
+                @error('descrição')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -39,8 +39,8 @@
 
         <div class="form-group">
             <label for="tipo">Tipo</label>
-            <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo" autofocus>
-                @error('Tipo')
+            <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" autofocus>
+                @error('tipo')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -49,8 +49,8 @@
 
         <div class="form-group">
             <label for="preco">Preco</label>
-            <input id="preco" type="text" class="form-control @error('preco') is-invalid @enderror" name="preco" value="{{ old('preco') }}" required autocomplete="preco" autofocus>
-             @error('Preco')
+            <input id="preco" type="text" class="form-control @error('preco') is-invalid @enderror" name="preco" value="{{ old('preco') }}" autofocus>
+             @error('preco')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -60,7 +60,17 @@
         <div class="form-group">
             <label for="linha">Linha</label>
             <input id="linha" type="text" class="form-control @error('linha') is-invalid @enderror" name="linha" value="{{ old('linha') }}" autofocus>
-                @error('nome')
+                @error('linha')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input id="quantidade" type="number" class="form-control @error('quantidade') is-invalid @enderror" name="quantidade" value="{{ old('quantidade') }}" autofocus>
+                @error('quantidade')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

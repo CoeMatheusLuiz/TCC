@@ -14,6 +14,7 @@
             <th>Tipo</th>
             <th>Preco</th>
             <th>Linha</th>
+            <th>Quantidade</th>
             <th>Editar Imagem</th>
             <th>Editar</th>
             <th>Remover</th>
@@ -31,6 +32,7 @@
             <td>{{$produto['tipo']}}</td>
             <td>${{$produto['preco']}}</td>
             <td>{{$produto['linha']}}</td>
+            <td>{{$produto['quantidade']}}</td>
 
              <td>
                 <a href="{{ route('adminEditarImagemProduto', ['id' => $produto['id'] ])}}">
