@@ -7,14 +7,16 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 use App\Email\EnviarEmailCriado;
 use App\Produto;
 use App\Carrinho;
+use App\User;
 
-class ProdutosController extends Controller
-{
-    
+class ProdutosController extends Controller{
+
     public function index(){
         
         //$produtos = [0=>["name"=>"Iphone", "categoria"=>"SmartPhone", "preco"=>1000]];
@@ -23,6 +25,51 @@ class ProdutosController extends Controller
 
         return view("site.loja", compact("produtos"));
     }
+
+
+    public function pagListaDesejos(){
+
+        $user_email = Auth::User()->email;
+        $userListaDesejos = DB::table('lista_desejos')->where('user_email', $user_email)->get();
+
+        foreach ($userListaDesejos as $key => $produto) {
+            $produtoDetalhes = Produto::where('id', $produto->id)->first();
+            $userListaDesejos[$key]->imagem = $produtoDetalhes->imagem;
+        }
+
+        return view('site.lista_desejos')->with(compact('userListaDesejos'));
+
+    }
+
+    //** Lista de Desejos **//
+
+    public function AddListaDesejos(Request $request, $id){
+
+        if(!Auth::check()){
+            return redirect()->back()->with('info', 'Faça login para adicionar o produto à sua lista de desejos.');
+        }
+             $produto = Produto::find($id);
+
+                $user_email = Auth::User()->email;
+                $quantidade = 1;
+                $created_at = Carbon::now();
+
+                $contaListaDesejos = DB::table('lista_desejos')->where([ 'user_email'=>$user_email, 'id'=>$produto['id'] ])->count();
+
+                if($contaListaDesejos > 0){
+
+                        return redirect()->back()->with('flash_message_error', 'O produto já existe na lista de desejos!');
+
+                }else{
+
+                        DB::table('lista_desejos')->insert(['id'=>$produto['id'], 'nome'=>$produto['nome'], 'descricao'=>$produto['descricao'], 'preco'=>$produto['preco'], 'imagem'=>$produto['imagem'], 'tipo'=>$produto['tipo'], 'linha'=>$produto['linha'], 'user_email'=>$user_email, 'quantidade'=>$quantidade, 'created_at'=>$created_at]);
+
+                    return redirect()->back()->with('info', 'O produto foi adicionado na lista de desejos.'); 
+
+                }
+
+    }
+
 
     //** CARRINHO **//
 

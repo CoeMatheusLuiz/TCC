@@ -33,6 +33,20 @@ Route::get('loja/garfos', ["uses"=>"ProdutosController@garfosProdutos", "as"=>"g
 
 // --------------------------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------------------------
+
+//**LISTA DE DESEJOS**//
+//**LISTA DE DESEJOS**//
+//**LISTA DE DESEJOS**//
+
+//mostrar todos os produtos da loja
+Route::get('addListaDesejos/{id}', ["uses"=>"ProdutosController@addListaDesejos", "as"=>"addListaDesejos"]);
+
+//mostra pagina da lista de desejos
+Route::get('pagListaDesejos/', ["uses"=>"ProdutosController@pagListaDesejos", "as"=>"pagListaDesejos"]);
+
+// --------------------------------------------------------------------------------------------------
+
 //** CARRINHO **//
 //** CARRINHO **//
 //** CARRINHO **//

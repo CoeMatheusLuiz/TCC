@@ -104,6 +104,7 @@ class AdminProdutosController extends Controller
     
     }
     
+
     //Criando um novo produto no banco de dados
 	public function criandoNovoProduto(ProdutosRequest $request){
 

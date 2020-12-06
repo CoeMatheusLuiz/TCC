@@ -1,8 +1,10 @@
 @extends('site.layouts.index')
 
 @section('center')
+
+
 <div id="corpo-loja">
-	
+
   <section id="home" class="d-flex">
 
 	<div  id="carousel-legenda" class="carousel slide" data-ride="carousel">
@@ -98,7 +100,7 @@
 											<div class="">
 												<div class="shop-menu pull-right">
 													<ul class="nav shop-menu-nav">
-														<li><a href="#"><i class="fa fa-star nav-item"></i> Lista de Desejos</a></li>
+																<li><a href="{{route('pagListaDesejos')}}"><i class="fa fa-star nav-item"></i> Lista de Desejos</a></li>
 																<li><a href="checkout.html"><i class="fa fa-crosshairs nav-item"></i> Checkout</a></li>
 																<li><a href="{{route('produtoscarrinho')}}"><i class="fa fa-shopping-cart nav-item"></i> Carrinho</a></li>
 																
@@ -428,6 +430,13 @@
 				
 				<div class="col-sm-9 padding-right">
 							<h2 class="title text-center">Itens</h2>
+
+							@if(Session::has('info'))
+							    <div class="alert alert-danger-loja">
+							       {{Session::get('info')}}
+							    </div>
+							@endif
+
 					<div class="features_items row"><!--features_items-->
 							@foreach($produtos as $produto)
 								<div class="col-md-4">
@@ -451,7 +460,7 @@
 										</div>
 										<div class="choose">
 											<ul class="nav nav-pills nav-justified">
-												<li><a href="#"><i class="fa fa-plus-square"></i>  Adicionar a lista de desejos</a></li>
+												<li><a href="{{route('addListaDesejos', ['id'=>$produto->id])}}"><i class="fa fa-plus-square"></i>  Adicionar a lista de desejos</a></li>
                              <li><a href="#"><i class="fa fa-plus-square"></i>  Detalhes do produto</a></li>
 											</ul>
 										</div>
